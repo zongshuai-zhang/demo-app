@@ -12,7 +12,7 @@ class GreetRequest(BaseModel):
     name: str
 
 
-@app.get("/health")
+@app.get="/health")
 def health():
     return {"status": "ok"}
 
@@ -34,3 +34,7 @@ def greet(req: GreetRequest):
     if not req.name.strip():
         raise HTTPException(status_code=400, detail="name cannot be empty")
     return {"greeting": f"Hello, {req.name}!"}
+
+@app.get("/ping")
+def ping():
+    return {"response": "pong"}
